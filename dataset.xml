@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <case id="1" name="Adam" surname="Smith"/>
+    <case id="2" name="John" surname="Doe"/>
+    <case id="3" name="Martin" surname="Johnes"/>
+</dataset>
