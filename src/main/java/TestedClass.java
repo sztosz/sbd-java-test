@@ -15,7 +15,7 @@ public class TestedClass {
     public void add() throws SQLException {
         PreparedStatement preparedStatement = connection.getConnection().prepareStatement(
                 "INSERT INTO TEST_TABLE VALUES ('row 2 col 0', 'row 2 col 1', 'row 2 col 2')");
-        preparedStatement.executeUpdate();
+        preparedStatement.execute();
     }
 
     public void remove() throws SQLException {

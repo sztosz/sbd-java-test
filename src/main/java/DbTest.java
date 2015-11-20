@@ -26,13 +26,13 @@ public class DbTest extends DBTestCase {
     }
 
     protected IDataSet getDataSet() throws Exception {
-        try {
-            PreparedStatement preparedStatement = getConnection().getConnection().prepareStatement(
-                    "create table TEST_TABLE ( COL0 varchar(255) primary key, COL1 varchar(255), COL2 varchar(255) )");
-            preparedStatement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            PreparedStatement preparedStatement = getConnection().getConnection().prepareStatement(
+//                    "create table TEST_TABLE ( COL0 varchar(255) primary key, COL1 varchar(255), COL2 varchar(255) )");
+//            preparedStatement.executeUpdate();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         return new FlatXmlDataSetBuilder().build(new File("dataset.xml"));
     }
 //
@@ -44,6 +44,12 @@ public class DbTest extends DBTestCase {
     protected DatabaseOperation getTearDownOperation() throws Exception {
         return DatabaseOperation.NONE;
     }
+
+    protected void setUpDatabaseConfig(DatabaseConfig config) {
+        config.setProperty(DatabaseConfig.PROPERTY_BATCH_SIZE, new Integer(97));
+        config.setFeature(DatabaseConfig.FEATURE_BATCHED_STATEMENTS, true);
+    }
+
 
 //    protected void setUp() throws Exception {
 //        super.setUp();
